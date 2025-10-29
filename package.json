@@ -1,0 +1,40 @@
+{
+  "name": "vue3-typescript-base",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc && vite build",
+    "preview": "vite preview",
+    "test:unit": "vitest run",
+    "test:unit:watch": "vitest",
+    "test:e2e": "cypress run",
+    "test:e2e:open": "cypress open",
+    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore"
+  },
+  "dependencies": {
+    "@mdi/font": "^7.4.47",
+    "axios": "^1.6.8",
+    "pinia": "^2.1.7",
+    "vue": "^3.4.21",
+    "vue-router": "^4.3.0",
+    "vuetify": "^3.5.13"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.0.0",
+    "@types/node": "^20.11.30",
+    "@vitejs/plugin-vue": "^5.0.4",
+    "@vitest/ui": "^1.4.0",
+    "@vue/test-utils": "^2.4.5",
+    "cypress": "^13.7.1",
+    "eslint": "^9.0.0",
+    "eslint-plugin-vue": "^9.24.0",
+    "jsdom": "^24.0.0",
+    "typescript": "^5.4.3",
+    "vite": "^5.2.7",
+    "vite-plugin-pwa": "^0.19.8",
+    "vite-plugin-vuetify": "^2.0.3",
+    "vitest": "^1.4.0",
+    "vue-tsc": "^2.0.7"
+  }
+}

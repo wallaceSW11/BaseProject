@@ -1,0 +1,55 @@
+<template>
+  <v-app>
+    <v-app-bar app color="primary" dark>
+      <v-app-bar-title>{{ appName }}</v-app-bar-title>
+
+      <v-spacer />
+
+      <v-btn icon to="/">
+        <v-icon>mdi-home</v-icon>
+      </v-btn>
+
+      <v-btn icon to="/demo">
+        <v-icon>mdi-test-tube</v-icon>
+      </v-btn>
+
+      <ThemeToggle />
+    </v-app-bar>
+
+    <v-main>
+      <router-view />
+    </v-main>
+
+    <!-- Global components that need to be rendered -->
+    <FloatingNotify ref="floatingNotifyRef" />
+    <LoadingOverlay ref="loadingOverlayRef" />
+    <ConfirmDialog ref="confirmDialogRef" />
+  </v-app>
+</template>
+
+<script setup lang="ts">
+import { ref, onMounted, computed } from 'vue'
+import { useNotifyStore } from '@/common/utils/notify'
+import { useLoadingStore } from '@/common/utils/loading'
+import { useThemeStore } from '@/stores/theme'
+import { useThemeSync } from '@/composables/useThemeSync'
+
+const floatingNotifyRef = ref()
+const loadingOverlayRef = ref()
+const confirmDialogRef = ref()
+
+const themeStore = useThemeStore()
+const appName = computed(() => themeStore.appName)
+
+// Sync theme store with Vuetify
+useThemeSync()
+
+onMounted(() => {
+  // Register global component refs with stores
+  const notifyStore = useNotifyStore()
+  const loadingStore = useLoadingStore()
+
+  notifyStore.setNotifyRef(floatingNotifyRef.value)
+  loadingStore.setLoadingRef(loadingOverlayRef.value)
+})
+</script>
