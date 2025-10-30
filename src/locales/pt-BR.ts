@@ -18,7 +18,7 @@ export default {
   },
   navigation: {
     home: "Início",
-    demo: "Demo",
+    demo: "Demonstração",
   },
   home: {
     title: "Bem-vindo ao Projeto Base",
