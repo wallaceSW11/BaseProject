@@ -34,7 +34,7 @@ import { useNotifyStore } from '@lib/utils/notify'
 import { useLoadingStore } from '@lib/utils/loading'
 import { useConfirmStore } from '@lib/utils/confirm'
 import { useThemeSync } from '@lib/composables'
-import { useThemeStore } from '@/stores/theme'
+import { useThemeStore } from '@lib/stores/theme'
 import { useLocaleStore } from '@/stores/locale'
 import { availableLocales } from '@/locales'
 

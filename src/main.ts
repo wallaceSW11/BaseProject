@@ -5,7 +5,7 @@ import router from "@/router";
 import vuetify from "@/plugins/vuetify";
 import i18n from "@/plugins/i18n";
 import { setupLib } from "@lib/index";
-import { useThemeStore } from "@/stores/theme";
+import { useThemeStore } from "@lib/stores/theme";
 import "@/styles/main.css";
 
 const app = createApp(App);

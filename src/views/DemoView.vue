@@ -147,7 +147,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { useAppStore } from '@/store'
-import { useThemeStore } from '@/stores/theme'
+import { useThemeStore } from '@lib/stores/theme'
 import { useGlobals } from '@lib/index'
 
 const { notify, loading, confirm } = useGlobals()
