@@ -1,10 +1,5 @@
 <template>
-  <v-btn
-    :prepend-icon="icon"
-    :disabled="disabled"
-    color="info"
-    @click="handleClick"
-  >
+  <v-btn :prepend-icon="icon" :disabled="disabled" color="info" class="text-none" @click="handleClick">
     {{ text }}
   </v-btn>
 </template>

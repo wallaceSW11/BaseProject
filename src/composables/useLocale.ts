@@ -4,7 +4,8 @@ import { availableLocales, type LocaleCode } from "@/locales";
 
 function loadSavedLocale(): LocaleCode | null {
   const savedLocale = localStorage.getItem("locale") as LocaleCode | null;
-  return savedLocale && availableLocales.some((l) => l.code === savedLocale)
+  return savedLocale &&
+    availableLocales.some((l: { code: string }) => l.code === savedLocale)
     ? savedLocale
     : null;
 }
