@@ -1,15 +1,10 @@
 <template>
-  <ModalBase
-    v-model="isOpen"
-    :title="currentTitle"
-    :message="currentMessage"
-    :actions="dialogActions"
-  />
+  <ModalBase v-model="isOpen" :title="currentTitle" :message="currentMessage" :actions="dialogActions" />
 </template>
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import ModalBase, { type ModalAction } from './ModalBase.vue'
+import ModalBase, { type ModalAction } from '../modals/ModalBase.vue'
 
 const isOpen = ref(false)
 const currentTitle = ref('')

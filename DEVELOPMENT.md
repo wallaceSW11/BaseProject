@@ -66,7 +66,7 @@ All components in `/src/common/components` are automatically registered globally
 Use the `notify` utility anywhere in your app:
 
 ```typescript
-import { notify } from "@/common/utils/notify";
+import { notify } from "@common/utils/notify";
 
 notify("success", "Success!", "Operation completed");
 notify("error", "Error!", "Something went wrong");
@@ -79,7 +79,7 @@ notify("info", "Info", "Here is some information");
 Show/hide loading overlay:
 
 ```typescript
-import { loading } from "@/common/utils/loading";
+import { loading } from "@common/utils/loading";
 
 loading(true, "Processing...");
 
@@ -92,7 +92,7 @@ loading(false);
 Use the pre-configured Axios instance:
 
 ```typescript
-import api from "@/common/utils/api";
+import api from "@common/utils/api";
 
 // GET request
 const response = await api.get("/users");

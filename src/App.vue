@@ -13,6 +13,8 @@
         <v-icon>mdi-test-tube</v-icon>
       </v-btn>
 
+      <LanguageSelector />
+
       <ThemeToggle />
     </v-app-bar>
 
@@ -20,7 +22,6 @@
       <router-view />
     </v-main>
 
-    <!-- Global components that need to be rendered -->
     <FloatingNotify ref="floatingNotifyRef" />
     <LoadingOverlay ref="loadingOverlayRef" />
     <ConfirmDialog ref="confirmDialogRef" />
@@ -29,9 +30,10 @@
 
 <script setup lang="ts">
 import { ref, onMounted, computed } from 'vue'
-import { useNotifyStore } from '@/common/utils/notify'
-import { useLoadingStore } from '@/common/utils/loading'
+import { useNotifyStore } from '@common/utils/notify'
+import { useLoadingStore } from '@common/utils/loading'
 import { useThemeStore } from '@/stores/theme'
+import { useLocaleStore } from '@/stores/locale'
 import { useThemeSync } from '@/composables/useThemeSync'
 
 const floatingNotifyRef = ref()
@@ -39,17 +41,19 @@ const loadingOverlayRef = ref()
 const confirmDialogRef = ref()
 
 const themeStore = useThemeStore()
+const localeStore = useLocaleStore()
 const appName = computed(() => themeStore.appName)
 
-// Sync theme store with Vuetify
 useThemeSync()
+localeStore.initializeLocale()
 
-onMounted(() => {
-  // Register global component refs with stores
+function registerGlobalComponentRefs() {
   const notifyStore = useNotifyStore()
   const loadingStore = useLoadingStore()
 
   notifyStore.setNotifyRef(floatingNotifyRef.value)
   loadingStore.setLoadingRef(loadingOverlayRef.value)
-})
+}
+
+onMounted(registerGlobalComponentRefs)
 </script>

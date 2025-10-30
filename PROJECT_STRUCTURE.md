@@ -194,9 +194,9 @@ main.ts
 ### Utilities (Import Required)
 
 ```typescript
-import { notify } from "@/common/utils/notify";
-import { loading } from "@/common/utils/loading";
-import api from "@/common/utils/api";
+import { notify } from "@common/utils/notify";
+import { loading } from "@common/utils/loading";
+import api from "@common/utils/api";
 ```
 
 ### Stores (Import Required)

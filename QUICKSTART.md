@@ -55,17 +55,17 @@ Open browser to: **http://localhost:5173**
 
 ```typescript
 // Notifications
-import { notify } from "@/common/utils/notify";
+import { notify } from "@common/utils/notify";
 notify("success", "Done!", "Saved successfully");
 
 // Loading
-import { loading } from "@/common/utils/loading";
+import { loading } from "@common/utils/loading";
 loading(true, "Saving...");
 await api.post("/save", data);
 loading(false);
 
 // API Calls
-import api from "@/common/utils/api";
+import api from "@common/utils/api";
 const users = await api.get("/users");
 ```
 

@@ -146,8 +146,8 @@
 
 <script setup lang="ts">
 import { computed } from 'vue'
-import { notify } from '@/common/utils/notify'
-import { loading } from '@/common/utils/loading'
+import { notify } from '@common/utils/notify'
+import { loading } from '@common/utils/loading'
 import { useAppStore } from '@/store'
 import { useThemeStore } from '@/stores/theme'
 
@@ -180,8 +180,7 @@ const showLoading = () => {
   }, 3000)
 }
 
-const showConfirm = async () => {
-  // Note: This would need to be implemented via the app component's ref
+const showConfirm = () => {
   notify('info', 'Confirm Dialog', 'This feature requires app-level integration')
 }
 </script>

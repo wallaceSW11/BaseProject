@@ -2,7 +2,6 @@ import { describe, it, expect, beforeEach, vi } from "vitest";
 import { setActivePinia, createPinia } from "pinia";
 import { useThemeStore } from "@/stores/theme";
 
-// Mock fetch for theme.json
 global.fetch = vi.fn();
 
 describe("Theme Store", () => {

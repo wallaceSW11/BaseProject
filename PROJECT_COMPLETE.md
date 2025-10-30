@@ -115,14 +115,14 @@ npm run test:e2e:open
 ### Show a Notification
 
 ```typescript
-import { notify } from "@/common/utils/notify";
+import { notify } from "@common/utils/notify";
 notify("success", "Done!", "Operation completed successfully");
 ```
 
 ### Display Loading
 
 ```typescript
-import { loading } from "@/common/utils/loading";
+import { loading } from "@common/utils/loading";
 loading(true, "Saving...");
 await saveData();
 loading(false);
@@ -131,7 +131,7 @@ loading(false);
 ### Make API Calls
 
 ```typescript
-import api from "@/common/utils/api";
+import api from "@common/utils/api";
 const data = await api.get("/endpoint");
 ```
 

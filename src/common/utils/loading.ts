@@ -24,7 +24,6 @@ export const useLoadingStore = defineStore("loading", () => {
   };
 });
 
-// Utility function for easy access
 export const loading = (show: boolean, message?: string) => {
   const store = useLoadingStore();
   store.loading(show, message);

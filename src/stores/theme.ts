@@ -29,7 +29,6 @@ export const useThemeStore = defineStore("theme", () => {
   const isDark = ref(false);
   const isLoading = ref(true);
 
-  // Computed
   const currentMode = computed(() => (isDark.value ? "dark" : "light"));
   const currentLogo = computed(
     () => themeConfig.value?.logo[currentMode.value] || ""
@@ -41,49 +40,17 @@ export const useThemeStore = defineStore("theme", () => {
     () => themeConfig.value?.customization.appName || "Vue3 Base"
   );
 
-  // Actions
-  async function loadTheme() {
-    try {
-      isLoading.value = true;
-      const response = await fetch("/theme.json");
-      if (!response.ok) {
-        throw new Error("Failed to load theme configuration");
-      }
-      themeConfig.value = await response.json();
-
-      // Load saved theme preference from localStorage
-      const savedTheme = localStorage.getItem("app-theme");
-      isDark.value = savedTheme === "dark";
-
-      // Apply theme to Vuetify
-      applyTheme();
-    } catch (error) {
-      console.error("Error loading theme:", error);
-    } finally {
-      isLoading.value = false;
-    }
+  function loadSavedThemePreference() {
+    const savedTheme = localStorage.getItem("app-theme");
+    isDark.value = savedTheme === "dark";
   }
 
-  function toggleTheme() {
-    isDark.value = !isDark.value;
-    localStorage.setItem("app-theme", currentMode.value);
-    applyTheme();
-  }
-
-  function setTheme(mode: "light" | "dark") {
-    isDark.value = mode === "dark";
-    localStorage.setItem("app-theme", mode);
-    applyTheme();
-  }
-
-  function applyTheme() {
+  function applyThemeToVuetify() {
     if (!themeConfig.value) return;
 
-    // Update HTML data attribute for Vuetify
     const html = document.documentElement;
     html.setAttribute("data-theme", currentMode.value);
 
-    // Dispatch custom event for components that need to react
     window.dispatchEvent(
       new CustomEvent("theme-changed", {
         detail: {
@@ -94,6 +61,36 @@ export const useThemeStore = defineStore("theme", () => {
     );
   }
 
+  async function loadTheme() {
+    try {
+      isLoading.value = true;
+      const response = await fetch("/theme.json");
+      if (!response.ok) {
+        throw new Error("Failed to load theme configuration");
+      }
+      themeConfig.value = await response.json();
+
+      loadSavedThemePreference();
+      applyThemeToVuetify();
+    } catch (error) {
+      console.error("Error loading theme:", error);
+    } finally {
+      isLoading.value = false;
+    }
+  }
+
+  function toggleTheme() {
+    isDark.value = !isDark.value;
+    localStorage.setItem("app-theme", currentMode.value);
+    applyThemeToVuetify();
+  }
+
+  function setTheme(mode: "light" | "dark") {
+    isDark.value = mode === "dark";
+    localStorage.setItem("app-theme", mode);
+    applyThemeToVuetify();
+  }
+
   function updateThemeColors(colors: Record<string, string>) {
     if (!themeConfig.value) return;
 
@@ -101,22 +98,17 @@ export const useThemeStore = defineStore("theme", () => {
       ...themeConfig.value.colors[currentMode.value],
       ...colors,
     };
-    applyTheme();
+    applyThemeToVuetify();
   }
 
   return {
-    // State
     themeConfig,
     isDark,
     isLoading,
-
-    // Computed
     currentMode,
     currentLogo,
     currentColors,
     appName,
-
-    // Actions
     loadTheme,
     toggleTheme,
     setTheme,

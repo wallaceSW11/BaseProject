@@ -1,7 +1,6 @@
 import { vi } from "vitest";
 import { config } from "@vue/test-utils";
 
-// Mock global properties
 config.global.mocks = {
   $route: {
     path: "/",
@@ -11,5 +10,3 @@ config.global.mocks = {
     push: vi.fn(),
   },
 };
-
-// Add custom matchers or global setup here

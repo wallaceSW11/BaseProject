@@ -16,7 +16,6 @@ describe("Demo Page", () => {
 
   it("shows notification when button is clicked", () => {
     cy.contains("button", "Primary").click();
-    // Notification should appear
     cy.contains("Button Clicked").should("be.visible");
   });
 
@@ -37,16 +36,13 @@ describe("Demo Page", () => {
   });
 
   it("increments counter in Pinia store", () => {
-    // Get initial counter value
     cy.contains("Counter:")
       .invoke("text")
       .then((text) => {
         const initialValue = parseInt(text.match(/\d+/)?.[0] || "0");
 
-        // Click increment button
         cy.contains("Increment Counter").click();
 
-        // Check counter increased
         cy.contains("Counter:").should(
           "contain",
           (initialValue + 1).toString()

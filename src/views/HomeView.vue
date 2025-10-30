@@ -2,15 +2,15 @@
   <v-container>
     <v-row>
       <v-col cols="12">
-        <h1 class="text-h3 mb-6">Welcome to Vue 3 + TypeScript Base</h1>
-        <p class="text-h6 mb-4">A professional starter kit for scalable applications</p>
+        <h1 class="text-h3 mb-6">{{ t('home.title') }}</h1>
+        <p class="text-h6 mb-4">{{ t('home.subtitle') }}</p>
       </v-col>
     </v-row>
 
     <v-row>
       <v-col cols="12" md="6">
         <v-card>
-          <v-card-title>Features</v-card-title>
+          <v-card-title>{{ t('common.appName') }} Features</v-card-title>
           <v-card-text>
             <v-list>
               <v-list-item prepend-icon="mdi-vuejs">
@@ -30,6 +30,9 @@
               </v-list-item>
               <v-list-item prepend-icon="mdi-test-tube">
                 <v-list-item-title>Vitest & Cypress Testing</v-list-item-title>
+              </v-list-item>
+              <v-list-item prepend-icon="mdi-translate">
+                <v-list-item-title>Vue I18n Internationalization</v-list-item-title>
               </v-list-item>
             </v-list>
           </v-card-text>
@@ -77,5 +80,7 @@
 </template>
 
 <script setup lang="ts">
-// Home view component
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n()
 </script>

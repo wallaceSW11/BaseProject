@@ -24,7 +24,6 @@ export const useNotifyStore = defineStore("notify", () => {
   };
 });
 
-// Utility function for easy access
 export const notify = (
   type: "success" | "error" | "warning" | "info",
   title: string,
