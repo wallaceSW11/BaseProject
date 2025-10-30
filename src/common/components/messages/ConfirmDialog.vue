@@ -30,7 +30,7 @@ const dialogActions: ModalAction[] = [
   },
 ]
 
-const confirm = (message: string, title = 'Confirm'): Promise<boolean> => {
+const ConfirmDialog = (title: string, message: string): Promise<boolean> => {
   currentTitle.value = title
   currentMessage.value = message
   isOpen.value = true
@@ -41,6 +41,6 @@ const confirm = (message: string, title = 'Confirm'): Promise<boolean> => {
 }
 
 defineExpose({
-  confirm,
+  ConfirmDialog,
 })
 </script>

@@ -19,7 +19,7 @@ export function useThemeSync() {
   }
 
   function updateVuetifyThemeMode() {
-    vuetifyTheme.global.name.value = themeStore.currentMode;
+    vuetifyTheme.change(themeStore.currentMode);
   }
 
   function syncTheme() {

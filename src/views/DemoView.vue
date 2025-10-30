@@ -146,10 +146,11 @@
 
 <script setup lang="ts">
 import { computed } from 'vue'
-import { notify } from '@common/utils/notify'
-import { loading } from '@common/utils/loading'
 import { useAppStore } from '@/store'
 import { useThemeStore } from '@/stores/theme'
+import { useGlobals } from '@common/index'
+
+const { notify, loading, confirm } = useGlobals()
 
 const appStore = useAppStore()
 const themeStore = useThemeStore()
@@ -180,7 +181,13 @@ const showLoading = () => {
   }, 3000)
 }
 
-const showConfirm = () => {
-  notify('info', 'Confirm Dialog', 'This feature requires app-level integration')
-}
+const showConfirm = async () => {
+  const confirmed = await confirm('Are you sure you want to proceed?', 'Choose your option')
+
+  if (confirmed) {
+    notify('success', 'Confirmed', 'You chose Yes')
+  } else {
+    notify('error', 'Cancelled', 'You chose No')
+  }
+};
 </script>

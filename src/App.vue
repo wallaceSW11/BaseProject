@@ -32,6 +32,7 @@
 import { ref, onMounted, computed } from 'vue'
 import { useNotifyStore } from '@common/utils/notify'
 import { useLoadingStore } from '@common/utils/loading'
+import { useConfirmStore } from '@common/utils/confirm'
 import { useThemeStore } from '@/stores/theme'
 import { useLocaleStore } from '@/stores/locale'
 import { useThemeSync } from '@/composables/useThemeSync'
@@ -50,9 +51,11 @@ localeStore.initializeLocale()
 function registerGlobalComponentRefs() {
   const notifyStore = useNotifyStore()
   const loadingStore = useLoadingStore()
+  const confirmStore = useConfirmStore()
 
   notifyStore.setNotifyRef(floatingNotifyRef.value)
   loadingStore.setLoadingRef(loadingOverlayRef.value)
+  confirmStore.setConfirmRef(confirmDialogRef.value)
 }
 
 onMounted(registerGlobalComponentRefs)
