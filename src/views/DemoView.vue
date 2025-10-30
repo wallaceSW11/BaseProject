@@ -148,7 +148,7 @@
 import { computed } from 'vue'
 import { useAppStore } from '@/store'
 import { useThemeStore } from '@/stores/theme'
-import { useGlobals } from '@common/index'
+import { useGlobals } from '@lib/index'
 
 const { notify, loading, confirm } = useGlobals()
 

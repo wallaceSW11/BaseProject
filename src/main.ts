@@ -4,7 +4,7 @@ import App from "@/App.vue";
 import router from "@/router";
 import vuetify from "@/plugins/vuetify";
 import i18n from "@/plugins/i18n";
-import { setupCommon } from "@common/index";
+import { setupLib } from "@lib/index";
 import { useThemeStore } from "@/stores/theme";
 import "@/styles/main.css";
 
@@ -16,7 +16,7 @@ function registerPlugins(app: ReturnType<typeof createApp>) {
   app.use(router);
   app.use(vuetify);
   app.use(i18n);
-  setupCommon(app);
+  setupLib(app);
 }
 
 async function initializeAndMountApp() {

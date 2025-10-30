@@ -24,8 +24,8 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"],
-      "@common/*": ["./src/common/*"],
-      "@common": ["./src/common/index.ts"]
+      "@lib/*": ["./src/lib/*"],
+      "@lib": ["./src/lib/index.ts"]
     },
 
     /* Type definitions */
