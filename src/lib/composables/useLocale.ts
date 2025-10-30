@@ -1,8 +1,14 @@
 import { computed } from "vue";
 import { useI18n } from "vue-i18n";
-import { availableLocales, type LocaleCode } from "@/locales";
+import {
+  defaultAvailableLocales,
+  type LocaleCode,
+  type LocaleOption,
+} from "@lib/locales";
 
-function loadSavedLocale(): LocaleCode | null {
+function loadSavedLocale(
+  availableLocales: readonly LocaleOption[]
+): LocaleCode | null {
   const savedLocale = localStorage.getItem("locale") as LocaleCode | null;
   return savedLocale &&
     availableLocales.some((l: { code: string }) => l.code === savedLocale)
@@ -10,8 +16,11 @@ function loadSavedLocale(): LocaleCode | null {
     : null;
 }
 
-export function useLocale() {
+export function useLocale(customLocales?: readonly LocaleOption[]) {
   const { locale, t } = useI18n();
+
+  // Use custom locales from project or fallback to lib's default
+  const availableLocales = customLocales || defaultAvailableLocales;
 
   const currentLocale = computed({
     get: () => locale.value as LocaleCode,
@@ -27,7 +36,7 @@ export function useLocale() {
     currentLocale.value = newLocale;
   };
 
-  const savedLocale = loadSavedLocale();
+  const savedLocale = loadSavedLocale(availableLocales);
   if (savedLocale) {
     locale.value = savedLocale;
   }

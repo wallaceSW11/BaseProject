@@ -7,8 +7,8 @@ export const messages = {
 };
 
 export const availableLocales = [
-  { code: "pt-BR", name: "Português (Brasil)", flag: "🇧🇷" },
-  { code: "en-US", name: "English (US)", flag: "🇺🇸" },
+  { code: "pt-BR", name: "Português (Brasil)", countryCode: "BR" },
+  { code: "en-US", name: "English (US)", countryCode: "US" },
 ] as const;
 
 export type LocaleCode = keyof typeof messages;

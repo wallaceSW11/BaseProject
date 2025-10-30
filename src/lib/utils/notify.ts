@@ -11,7 +11,7 @@ export const useNotifyStore = defineStore("notify", () => {
   const notify = (
     type: "success" | "error" | "warning" | "info",
     title: string,
-    message: string
+    message?: string
   ) => {
     if (notifyRef.value) {
       notifyRef.value.show(type, title, message);
@@ -27,7 +27,7 @@ export const useNotifyStore = defineStore("notify", () => {
 export const notify = (
   type: "success" | "error" | "warning" | "info",
   title: string,
-  message: string
+  message?: string
 ) => {
   const store = useNotifyStore();
   store.notify(type, title, message);

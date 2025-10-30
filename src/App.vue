@@ -13,7 +13,7 @@
         <v-icon>mdi-test-tube</v-icon>
       </v-btn>
 
-      <LanguageSelector />
+      <LanguageSelector :available-locales="availableLocales" />
 
       <ThemeToggle />
     </v-app-bar>
@@ -33,9 +33,10 @@ import { ref, onMounted, computed } from 'vue'
 import { useNotifyStore } from '@lib/utils/notify'
 import { useLoadingStore } from '@lib/utils/loading'
 import { useConfirmStore } from '@lib/utils/confirm'
+import { useThemeSync } from '@lib/composables'
 import { useThemeStore } from '@/stores/theme'
 import { useLocaleStore } from '@/stores/locale'
-import { useThemeSync } from '@/composables/useThemeSync'
+import { availableLocales } from '@/locales'
 
 const floatingNotifyRef = ref()
 const loadingOverlayRef = ref()

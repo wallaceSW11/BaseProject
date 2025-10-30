@@ -178,6 +178,21 @@ onMounted(registerGlobalComponentRefs);
 2. **Vuetify** is required for components to work
 3. Components are registered **globally** automatically
 4. No need to import individual components, use them directly in templates
+5. **i18n (Internationalization)**:
+   - `ConfirmDialog` and `LoadingOverlay` use i18n for button labels and messages
+   - Required translations in your project's locale files:
+     ```typescript
+     // locales/en-US.ts
+     export default {
+       common: {
+         yes: "Yes",
+         no: "No",
+         loading: "Loading...",
+       },
+     };
+     ```
+   - If your project doesn't use i18n, the lib includes fallback translations in `lib/locales/`
+   - `LanguageSelector` component automatically uses `lib/locales/` as fallback
 
 ## 🚀 Complete Example
 

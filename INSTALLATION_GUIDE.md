@@ -255,10 +255,82 @@ async function fetchData() {
 
 ### **Optional Components (require external configuration)**
 
-| Component          | Description       | Dependency                                   |
-| ------------------ | ----------------- | -------------------------------------------- |
-| `ThemeToggle`      | Theme switcher    | `@/stores/theme`                             |
-| `LanguageSelector` | Language selector | `@/composables/useLocale`, `@/stores/locale` |
+| Component          | Description       | Dependency                            |
+| ------------------ | ----------------- | ------------------------------------- |
+| `ThemeToggle`      | Theme switcher    | `@/stores/theme`                      |
+| `LanguageSelector` | Language selector | `@/locales` (optional - has fallback) |
+
+#### **Using LanguageSelector with Custom Locales**
+
+The `LanguageSelector` component works standalone with default locales (pt-BR and en-US), but you can provide your own:
+
+**Option 1: Use default locales from lib (no configuration needed)**
+
+```vue
+<template>
+  <LanguageSelector />
+</template>
+```
+
+**Option 2: Provide custom locales**
+
+1. Create your locales structure:
+
+```typescript
+// src/locales/index.ts
+import ptBR from "./pt-BR";
+import enUS from "./en-US";
+import esES from "./es-ES"; // Additional language
+
+export const messages = {
+  "pt-BR": ptBR,
+  "en-US": enUS,
+  "es-ES": esES,
+};
+
+export const availableLocales = [
+  { code: "pt-BR", name: "Português (Brasil)", countryCode: "BR" },
+  { code: "en-US", name: "English (US)", countryCode: "US" },
+  { code: "es-ES", name: "Español", countryCode: "ES" },
+] as const;
+
+export type LocaleCode = keyof typeof messages;
+export const defaultLocale: LocaleCode = "pt-BR";
+```
+
+**Note about country flags:** The `LanguageSelector` component automatically displays country flags from `currencies.json` based on the `countryCode` property. The component shows only the flag icon when closed, and displays flag + language name when the dropdown is open.
+
+2. Pass to LanguageSelector:
+
+```vue
+<template>
+  <LanguageSelector :available-locales="availableLocales" />
+</template>
+
+<script setup lang="ts">
+import { availableLocales } from "@/locales";
+</script>
+```
+
+3. Configure i18n plugin:
+
+```typescript
+// src/plugins/i18n.ts
+import { createI18n } from "vue-i18n";
+import { messages, defaultLocale } from "@/locales";
+
+export const i18n = createI18n({
+  legacy: false,
+  locale: defaultLocale,
+  fallbackLocale: "en-US",
+  messages,
+  globalInjection: true,
+});
+
+export default i18n;
+```
+
+**Note:** The lib includes fallback locales with basic translations (loading, save, cancel, etc.). Your project's locales will override these defaults.
 
 ---
 
