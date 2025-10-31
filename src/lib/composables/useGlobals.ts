@@ -10,7 +10,9 @@ export function useGlobals() {
     throw new Error("useGlobals must be called within setup()");
   }
 
-  const { $notify, $loading, $confirm } = instance.proxy!;
+  const $notify = instance.appContext.config.globalProperties.$notify;
+  const $loading = instance.appContext.config.globalProperties.$loading;
+  const $confirm = instance.appContext.config.globalProperties.$confirm;
 
   return {
     notify: $notify as typeof notifyFn,
