@@ -8,6 +8,7 @@ export default defineConfig({
     vue(),
     vuetify({
       autoImport: true,
+      styles: "none", // Disable styles for testing
     }),
   ],
   test: {
@@ -18,10 +19,19 @@ export default defineConfig({
       provider: "v8",
       reporter: ["text", "json", "html"],
     },
+    server: {
+      deps: {
+        inline: ["vuetify"],
+      },
+    },
+  },
+  ssr: {
+    noExternal: ["vuetify"],
   },
   resolve: {
     alias: {
       "@": fileURLToPath(new URL("./src", import.meta.url)),
+      "@lib": fileURLToPath(new URL("./src/lib", import.meta.url)),
     },
   },
 });

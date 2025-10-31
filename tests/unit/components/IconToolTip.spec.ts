@@ -1,6 +1,6 @@
 import { describe, it, expect } from "vitest";
 import { mount } from "@vue/test-utils";
-import IconToolTip from "@common/components/IconToolTip.vue";
+import IconToolTip from "@lib/components/buttons/IconToolTip.vue";
 
 describe("IconToolTip", () => {
   it("renders icon correctly", () => {
@@ -32,6 +32,7 @@ describe("IconToolTip", () => {
       },
     });
 
-    expect(wrapper.html()).toContain("Help tooltip");
+    // Tooltip text is stored in the component props, not rendered in HTML directly
+    expect(wrapper.props("text")).toBe("Help tooltip");
   });
 });

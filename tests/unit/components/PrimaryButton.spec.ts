@@ -1,6 +1,6 @@
 import { describe, it, expect } from "vitest";
 import { mount } from "@vue/test-utils";
-import PrimaryButton from "@common/components/buttons/PrimaryButton.vue";
+import PrimaryButton from "@lib/components/buttons/PrimaryButton.vue";
 
 describe("PrimaryButton", () => {
   it("renders button text correctly", () => {
