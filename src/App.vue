@@ -30,11 +30,11 @@
 
 <script setup lang="ts">
 import { ref, onMounted, computed } from 'vue'
-import { useNotifyStore } from '@lib/utils/notify'
-import { useLoadingStore } from '@lib/utils/loading'
-import { useConfirmStore } from '@lib/utils/confirm'
-import { useThemeSync } from '@lib/composables'
-import { useThemeStore } from '@lib/stores/theme'
+import { useNotifyStore } from '@wallacesw11/base-lib/utils'
+import { useLoadingStore } from '@wallacesw11/base-lib/utils'
+import { useConfirmStore } from '@wallacesw11/base-lib/utils'
+import { useThemeSync } from '@wallacesw11/base-lib/composables'
+import { useThemeStore } from '@wallacesw11/base-lib/stores'
 import { useLocaleStore } from '@/stores/locale'
 import { availableLocales } from '@/locales'
 

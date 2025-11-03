@@ -1,6 +1,6 @@
 import { describe, it, expect } from "vitest";
 import { mount } from "@vue/test-utils";
-import IconToolTip from "@lib/components/buttons/IconToolTip.vue";
+import { IconToolTip } from "@wallacesw11/base-lib";
 
 describe("IconToolTip", () => {
   it("renders icon correctly", () => {

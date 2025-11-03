@@ -4,8 +4,8 @@ import App from "@/App.vue";
 import router from "@/router";
 import vuetify from "@/plugins/vuetify";
 import i18n from "@/plugins/i18n";
-import { setupLib } from "@lib/index";
-import { useThemeStore } from "@lib/stores/theme";
+import { setupLib } from "@wallacesw11/base-lib";
+import { useThemeStore } from "@wallacesw11/base-lib/stores";
 import "@/styles/main.css";
 
 const app = createApp(App);

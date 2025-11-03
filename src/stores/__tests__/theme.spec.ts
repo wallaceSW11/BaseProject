@@ -1,6 +1,6 @@
 import { describe, it, expect, beforeEach, vi } from "vitest";
 import { setActivePinia, createPinia } from "pinia";
-import { useThemeStore } from "@lib/stores/theme";
+import { useThemeStore } from "@wallacesw11/base-lib/stores";
 
 global.fetch = vi.fn();
 
