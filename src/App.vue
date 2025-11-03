@@ -30,16 +30,16 @@
 
 <script setup lang="ts">
 import { ref, onMounted, computed } from 'vue'
-import { 
-  useNotifyStore, 
-  useLoadingStore, 
-  useConfirmStore 
+import {
+  useNotifyStore,
+  useLoadingStore,
+  useConfirmStore
 } from '@wallacesw11/base-lib/utils'
 import { useThemeSync } from '@wallacesw11/base-lib/composables'
 import { useThemeStore } from '@wallacesw11/base-lib/stores'
-import { 
-  FloatingNotify, 
-  LoadingOverlay, 
+import {
+  FloatingNotify,
+  LoadingOverlay,
   ConfirmDialog,
   LanguageSelector,
   ThemeToggle
