@@ -149,6 +149,7 @@ import { computed } from 'vue'
 import { useAppStore } from '@/store'
 import { useThemeStore } from '@wallacesw11/base-lib/stores'
 import { useGlobals } from '@wallacesw11/base-lib'
+import { IconToolTip } from '@wallacesw11/base-lib'
 
 const { notify, loading, confirm } = useGlobals()
 
