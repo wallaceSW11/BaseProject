@@ -46,22 +46,22 @@
             <v-list>
               <v-list-item>
                 <v-list-item-title class="text-caption">
-                  <code>npm install</code> - Install dependencies
+                  <code>pnpm install</code> - Install dependencies
                 </v-list-item-title>
               </v-list-item>
               <v-list-item>
                 <v-list-item-title class="text-caption">
-                  <code>npm run dev</code> - Start development server
+                  <code>pnpm dev</code> - Start development server
                 </v-list-item-title>
               </v-list-item>
               <v-list-item>
                 <v-list-item-title class="text-caption">
-                  <code>npm run build</code> - Build for production
+                  <code>pnpm build</code> - Build for production
                 </v-list-item-title>
               </v-list-item>
               <v-list-item>
                 <v-list-item-title class="text-caption">
-                  <code>npm run test:unit</code> - Run unit tests
+                  <code>pnpm test:unit</code> - Run unit tests
                 </v-list-item-title>
               </v-list-item>
             </v-list>

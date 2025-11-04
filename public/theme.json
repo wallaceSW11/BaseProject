@@ -1,5 +1,5 @@
 {
-  "name": "Vue3 Base Theme",
+  "name": "BaseProject Theme",
   "version": "1.0.0",
   "logo": {
     "light": "/logo-light.svg",
@@ -35,8 +35,8 @@
     "monospace": "Courier New, monospace"
   },
   "customization": {
-    "appName": "Vue3 TypeScript Base",
-    "appDescription": "A professional Vue 3 + TypeScript starter kit",
-    "copyrightText": "© 2025 Vue3 Base. All rights reserved."
+    "appName": "BaseProject",
+    "appDescription": "Modern Vue 3 + TypeScript base template",
+    "copyrightText": "© 2025 BaseProject. All rights reserved."
   }
 }

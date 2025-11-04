@@ -45,25 +45,19 @@ export default defineConfig({
     rollupOptions: {
       output: {
         manualChunks: (id) => {
-          // Split node_modules into separate chunks
           if (id.includes("node_modules")) {
-            // Vuetify gets its own chunk
             if (id.includes("vuetify")) {
               return "vuetify";
             }
-            // Vue ecosystem
             if (id.includes("vue-router") || id.includes("pinia")) {
               return "vue-vendor";
             }
-            // i18n
             if (id.includes("vue-i18n")) {
               return "i18n";
             }
-            // Vue core
             if (id.includes("vue") || id.includes("@vue")) {
               return "vue";
             }
-            // Other dependencies
             return "vendor";
           }
         },

@@ -14,3 +14,6 @@ dist-ssr
 coverage
 cypress/videos
 cypress/screenshots
+.env
+package-lock.json
+yarn.lock

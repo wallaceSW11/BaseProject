@@ -2,6 +2,11 @@
   "name": "vue3-typescript-base",
   "version": "1.0.0",
   "type": "module",
+  "engines": {
+    "node": ">=18.0.0",
+    "pnpm": ">=8.0.0"
+  },
+  "packageManager": "pnpm@9.0.0",
   "scripts": {
     "dev": "vite",
     "start": "vite",
@@ -11,7 +16,8 @@
     "test:unit:watch": "vitest",
     "test:e2e": "cypress run",
     "test:e2e:open": "cypress open",
-    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore"
+    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
+    "preinstall": "npx only-allow pnpm"
   },
   "dependencies": {
     "@mdi/font": "^7.4.47",

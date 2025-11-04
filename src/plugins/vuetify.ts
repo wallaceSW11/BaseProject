@@ -4,11 +4,6 @@ import * as components from "vuetify/components";
 import * as directives from "vuetify/directives";
 import "@mdi/font/css/materialdesignicons.css";
 
-/**
- * Default fallback colors
- * These will be overridden by the white-label theme from public/theme.json
- * The actual theme is loaded and applied via useThemeStore and useThemeSync
- */
 const defaultLightColors = {
   primary: "#1867C0",
   secondary: "#5CBBF6",

@@ -2,12 +2,11 @@
   <v-container>
     <v-row>
       <v-col cols="12">
-        <h1 class="text-h3 mb-6">Component Demo</h1>
-        <p class="text-subtitle-1 mb-8">Test all global components and utilities</p>
+        <h1 class="text-h3 mb-6">BaseLib - Component Demo</h1>
+        <p class="text-subtitle-1 mb-8">Exemplos práticos de todos os componentes e utilitários da BaseLib</p>
       </v-col>
     </v-row>
 
-    <!-- Buttons Demo -->
     <v-row>
       <v-col cols="12">
         <v-card class="mb-6">
@@ -28,7 +27,6 @@
       </v-col>
     </v-row>
 
-    <!-- Notifications Demo -->
     <v-row>
       <v-col cols="12">
         <v-card class="mb-6">
@@ -53,7 +51,6 @@
       </v-col>
     </v-row>
 
-    <!-- Theme Demo -->
     <v-row>
       <v-col cols="12">
         <v-card class="mb-6">
@@ -82,7 +79,6 @@
       </v-col>
     </v-row>
 
-    <!-- Loading Demo -->
     <v-row>
       <v-col cols="12">
         <v-card class="mb-6">
@@ -96,7 +92,6 @@
       </v-col>
     </v-row>
 
-    <!-- Confirm Dialog Demo -->
     <v-row>
       <v-col cols="12">
         <v-card class="mb-6">
@@ -110,7 +105,6 @@
       </v-col>
     </v-row>
 
-    <!-- Icon Tooltip Demo -->
     <v-row>
       <v-col cols="12">
         <v-card class="mb-6">
@@ -127,7 +121,6 @@
       </v-col>
     </v-row>
 
-    <!-- Pinia Store Demo -->
     <v-row>
       <v-col cols="12">
         <v-card>

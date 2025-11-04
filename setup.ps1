@@ -1,11 +1,10 @@
-# Vue 3 TypeScript Base - Quick Setup Script
+# BaseProject - Quick Setup Script
 # Run this script in PowerShell to set up the project
 
-Write-Host "🚀 Vue 3 TypeScript Base - Setup Script" -ForegroundColor Cyan
-Write-Host "========================================" -ForegroundColor Cyan
+Write-Host "🚀 BaseProject - Setup Script" -ForegroundColor Cyan
+Write-Host "==============================" -ForegroundColor Cyan
 Write-Host ""
 
-# Check if Node.js is installed
 Write-Host "Checking Node.js installation..." -ForegroundColor Yellow
 try {
     $nodeVersion = node --version
@@ -15,19 +14,18 @@ try {
     exit 1
 }
 
-# Check if npm is installed
-Write-Host "Checking npm installation..." -ForegroundColor Yellow
+Write-Host "Checking pnpm installation..." -ForegroundColor Yellow
 try {
-    $npmVersion = npm --version
-    Write-Host "✅ npm $npmVersion found" -ForegroundColor Green
+    $pnpmVersion = pnpm --version
+    Write-Host "✅ pnpm $pnpmVersion found" -ForegroundColor Green
 } catch {
-    Write-Host "❌ npm not found. Please install npm" -ForegroundColor Red
-    exit 1
+    Write-Host "❌ pnpm not found. Installing pnpm..." -ForegroundColor Yellow
+    npm install -g pnpm
 }
 
 Write-Host ""
 Write-Host "Installing dependencies..." -ForegroundColor Yellow
-npm install
+pnpm install
 
 if ($LASTEXITCODE -eq 0) {
     Write-Host "✅ Dependencies installed successfully" -ForegroundColor Green
@@ -46,13 +44,13 @@ if (Test-Path ".env") {
 }
 
 Write-Host ""
-Write-Host "========================================" -ForegroundColor Cyan
+Write-Host "==============================" -ForegroundColor Cyan
 Write-Host "✅ Setup complete!" -ForegroundColor Green
 Write-Host ""
 Write-Host "Next steps:" -ForegroundColor Cyan
-Write-Host "  1. Start development server: npm run dev" -ForegroundColor White
-Write-Host "  2. Run unit tests: npm run test:unit" -ForegroundColor White
-Write-Host "  3. Run E2E tests: npm run test:e2e:open" -ForegroundColor White
+Write-Host "  1. Start development server: pnpm dev" -ForegroundColor White
+Write-Host "  2. Run unit tests: pnpm test:unit" -ForegroundColor White
+Write-Host "  3. Run E2E tests: pnpm test:e2e:open" -ForegroundColor White
 Write-Host ""
-Write-Host "📖 Read DEVELOPMENT.md for detailed documentation" -ForegroundColor Cyan
+Write-Host "📖 Read README.md for documentation" -ForegroundColor Cyan
 Write-Host "🎉 Happy coding!" -ForegroundColor Green
