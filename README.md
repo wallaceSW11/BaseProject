@@ -1,219 +1,241 @@
-# BaseProject# Vue 3 + TypeScript Project Base
+# Vue 3 + TypeScript Base Project
 
-Projeto base para criação de aplicações Vue 3 modernas com TypeScript e Vuetify.A professional starter kit for scalable Vue 3 applications with TypeScript, Vuetify 3, and comprehensive testing setup.
+A professional starter kit for scalable Vue 3 applications with TypeScript, Vuetify 3, and comprehensive testing setup, powered by [BaseLib](https://github.com/wallaceSW11/BaseLib).
 
-## 📋 Sobre## 🚀 Features
+## 🚀 Features
 
-Este é um template pronto para iniciar novos projetos web, incluindo toda a configuração necessária e integração com a [BaseLib](https://github.com/wallaceSW11/BaseLib) - biblioteca de componentes reutilizáveis.- ✅ Vue 3 with Composition API
-
-- ✅ TypeScript for type safety
-
-## ⚡ Tecnologias- ✅ Vuetify 3 with Material Design Icons
-
+- ✅ **Vue 3** with Composition API
+- ✅ **TypeScript** for type safety
+- ✅ **Vuetify 3** with Material Design Icons
 - ✅ **White Label Theme System** - Customize colors and branding via JSON
+- ✅ **Light/Dark Theme Support** - Automatic theme switching with persistence
+- ✅ **Vue Router** for navigation
+- ✅ **Pinia** for state management
+- ✅ **Vue I18n** for internationalization
+- ✅ **Axios** with pre-configured interceptors
+- ✅ **BaseLib** integration - Reusable components and utilities
+- ✅ **Vitest** for unit testing
+- ✅ **Cypress** for E2E testing
+- ✅ **Vite** for blazing fast builds
+- ✅ **PWA Support** ready
 
-- **Vue 3** - Framework JavaScript progressivo- ✅ **Light/Dark Theme Support** - Automatic theme switching with persistence
+## 📦 Installation
 
-- **TypeScript** - Tipagem estática- ✅ Vue Router for navigation
+**This project requires PNPM for optimal performance:**
 
-- **Vuetify 3** - Framework de componentes Material Design- ✅ Pinia for state management
+```bash
+# Install pnpm globally (if you haven't already)
+npm install -g pnpm
 
-- **Pinia** - Gerenciamento de estado- ✅ Axios with interceptors
+# Install dependencies
+pnpm install
+```
 
-- **Vue Router** - Roteamento- ✅ Global reusable components
+## �️ Development
 
-- **Vue I18n** - Internacionalização- ✅ PWA support
+```bash
+# Start development server
+pnpm dev
 
-- **Vite** - Build tool ultrarrápido- ✅ Vitest for unit testing
-
-- **Vitest** - Testes unitários- ✅ Cypress for E2E testing
-
-- **Cypress** - Testes E2E- ✅ CI/CD with GitHub Actions
-
-## 🚀 Instalação## 📦 Installation
-
-**Este projeto requer PNPM para máxima performance:**```bash
-
-npm install
-
-`bash`
-
-# Instale o pnpm globalmente (se ainda não tiver)
-
-npm install -g pnpm## 🛠️ Development
-
-# Instale as dependências```bash
-
-pnpm installnpm run dev
-
-````
-
-
-
-## 💻 Desenvolvimento## 🏗️ Build
-
-
-
-```bash```bash
-
-# Iniciar servidor de desenvolvimentonpm run build
-
-pnpm dev```
-
-
-
-# Build para produção## 🧪 Testing
-
+# Build for production
 pnpm build
+
+# Preview production build
+pnpm preview
+```
+
+## 🧪 Testing
 
 ### Unit Tests
 
-# Preview do build
-
-pnpm preview```bash
-
-```npm run test:unit          # Run once
-
+```bash
+npm run test:unit          # Run once
 npm run test:unit:watch    # Watch mode
+```
 
-## 🧪 Testes```
+### E2E Tests
 
-
-
-```bash### E2E Tests
-
-# Testes unitários
-
-pnpm test:unit```bash
-
+```bash
 npm run test:e2e           # Run headless
+npm run test:e2e:open      # Open Cypress UI
+```
 
-# Testes unitários em modo watchnpm run test:e2e:open      # Open Cypress UI
-
-pnpm test:unit:watch```
-
-
-
-# Testes E2E## 🎨 White Label Customization
-
-pnpm test:e2e
+## 🎨 White Label Customization
 
 Easily customize the application's branding without code changes:
 
-# Abrir Cypress UI
-
-pnpm test:e2e:open1. Edit `public/theme.json` to configure:
-
-```
+1. Edit `public/theme.json` to configure:
 
    - Brand colors for light and dark themes
-
-## 📦 BaseLib - Biblioteca de Componentes   - Logo paths for different themes
-
+   - Logo paths for different themes
    - Application name and metadata
-
-Este projeto já vem configurado com a **BaseLib**, uma biblioteca de componentes e utilitários reutilizáveis.
 
 2. Toggle between light and dark themes using the theme switcher in the header
 
-### Componentes Disponíveis
+See the demo page (`/demo`) for live examples of theme customization.
 
-See [White Label Documentation](./docs/WHITE_LABEL.md) for complete customization guide.
+## 📦 BaseLib Integration
 
-Para ver exemplos de uso, acesse `/demo` no projeto rodando.
+This project comes pre-configured with **BaseLib**, a comprehensive library of reusable components and utilities.
+
+### Available Components
+
+- **Buttons**: `PrimaryButton`, `SecondaryButton`, `TertiaryButton`, `QuartenaryButton`
+- **LanguageSelector**: Language selector with country flags
+- **ThemeToggle**: Light/dark theme switcher
+- **LoadingOverlay**: Full-screen loading indicator
+- **FloatingNotify**: Toast notifications
+- **ConfirmDialog**: Confirmation dialogs
+- **ModalBase**: Customizable modal
+- **IconToolTip**: Icon with optional tooltip
+
+### Using BaseLib Components
+
+```vue
+<script setup lang="ts">
+import {
+  PrimaryButton,
+  LanguageSelector,
+  ThemeToggle,
+} from "@wallacesw11/base-lib";
+</script>
+
+<template>
+  <PrimaryButton text="Click me" icon="mdi-check" @click="handleClick" />
+  <LanguageSelector :available-locales="locales" />
+  <ThemeToggle />
+</template>
+```
+
+### Using BaseLib Utilities
+
+```typescript
+import { notify, loading, confirm } from "@wallacesw11/base-lib";
+
+// Notifications
+notify("success", "Success!", "Operation completed successfully");
+notify("error", "Error!", "Something went wrong");
+notify("warning", "Warning!", "Please be careful");
+notify("info", "Info", "This is an information message");
+
+// Loading overlay
+loading(true, "Processing your request...");
+// ... perform async operation
+loading(false);
+
+// Confirmation dialog
+const confirmed = await confirm(
+  "Confirm Action",
+  "Are you sure you want to proceed?"
+);
+if (confirmed) {
+  // User clicked "Yes"
+} else {
+  // User clicked "No"
+}
+```
+
+### Using BaseLib Composables
+
+```typescript
+import { useThemeSync, useThemeStore } from "@wallacesw11/base-lib";
+
+const themeStore = useThemeStore();
+
+// Sync theme with Vuetify
+useThemeSync();
+
+// Toggle theme
+themeStore.toggleTheme();
+
+// Get current theme
+console.log(themeStore.currentMode); // 'light' or 'dark'
+```
+
+### API Client
+
+BaseLib provides a pre-configured Axios instance with:
+
+- Automatic Bearer token injection
+- Loading states on mutations (POST, PUT, DELETE, PATCH)
+- Error notification handling
+
+```typescript
+import { api } from "@wallacesw11/base-lib";
+
+// GET request
+const { data } = await api.get("/users");
+
+// POST request (automatically shows loading)
+const newUser = await api.post("/users", { name: "John" });
+```
+
+### Updating BaseLib
+
+```bash
+pnpm update @wallacesw11/base-lib
+```
 
 ## 📁 Project Structure
 
-A DemoView.vue contém exemplos práticos de:
-
-- Botões (Primary, Secondary, Tertiary, Quaternary)```
-
-- LanguageSelector (Seletor de idioma com bandeiras)src/
-
-- ThemeToggle (Alternador de tema claro/escuro)├── common/               # Global components and utilities
-
-- LoadingOverlay (Overlay de carregamento)│   ├── components/      # Reusable components
-
-- FloatingNotify (Notificações flutuantes)│   │   ├── buttons/    # Button variants
-
-- ConfirmDialog (Diálogos de confirmação)│   │   └── ...         # Modals, notifications, etc.
-
-- ModalBase (Modal customizável)│   └── utils/          # Utility functions
-
-├── stores/             # Pinia stores
-
-### Como Usar│   ├── app.ts         # Application state
-
-│   └── theme.ts       # Theme management
-
-```typescript├── router/             # Vue Router config
-
-// Importar componentes├── views/              # Page components
-
-import { PrimaryButton, LanguageSelector, ThemeToggle } from '@wallacesw11/base-lib'└── main.ts             # App entry point
-
+```
+src/
+├── assets/         # Static assets
+├── locales/        # i18n translations
+│   ├── en-US.ts
+│   ├── pt-BR.ts
+│   └── index.ts
+├── plugins/        # Plugin configuration (Vuetify, i18n)
+│   ├── vuetify.ts
+│   └── i18n.ts
+├── router/         # Vue Router config
+│   └── index.ts
+├── stores/         # Pinia stores
+│   └── locale.ts
+├── styles/         # Global styles
+│   ├── main.css
+│   └── settings.scss
+├── views/          # Page components
+│   ├── HomeView.vue
+│   └── DemoView.vue
+├── App.vue         # Root component
+└── main.ts         # Application entry point
 ```
 
-// Importar utilitários
+## 🎯 Using as a Base Project
 
-import { notify, confirm, loading } from '@wallacesw11/base-lib'## 🧩 Global Components
+1. Clone or download this project
+2. Rename the folder and update `package.json` (name, version, etc.)
+3. Remove example code from `DemoView.vue` if not needed
+4. Run `pnpm install`
+5. Start developing!
 
+## 📝 Demo
 
+Visit `/demo` route to see live examples of all BaseLib components and utilities in action.
 
-// Usar composablesAll components in `common/components` are automatically registered globally:
+The `DemoView.vue` contains practical examples of:
 
-import { useLocale, useThemeSync } from '@wallacesw11/base-lib'
+- All button variants
+- Notification system
+- Theme configuration
+- Loading overlay
+- Confirmation dialogs
+- Icon tooltips
+- Pinia store integration
 
-```- **Buttons**: PrimaryButton, SecondaryButton, TertiaryButton, QuartenaryButton
+## 📚 Documentation
 
-- **IconToolTip**: Icon with optional tooltip
+- [BaseLib Documentation](https://github.com/wallaceSW11/BaseLib)
+- [Vue 3 Documentation](https://vuejs.org/)
+- [Vuetify 3 Documentation](https://vuetifyjs.com/)
+- [Pinia Documentation](https://pinia.vuejs.org/)
+- [Vue Router Documentation](https://router.vuejs.org/)
 
-### Atualizar BaseLib- **ModalBase**: Flexible modal dialog
-
-- **ConfirmDialog**: Promise-based confirmation dialog
-
-```bash- **FloatingNotify**: Toast notifications
-
-pnpm update @wallacesw11/base-lib- **LoadingOverlay**: Full-screen loading indicator
-
-```- **ThemeToggle**: Light/dark theme switcher
-
-
-
-## 📁 Estrutura## 🔧 Utilities
-
-
-
-```- **notify(type, title, message)**: Display toast notifications
-
-src/- **loading(show, message?)**: Show/hide loading overlay
-
-├── assets/         # Arquivos estáticos- **api**: Configured Axios instance with interceptors
-
-├── locales/        # Traduções i18n- **useThemeStore**: Access and control theme configuration
-
-├── plugins/        # Configuração de plugins (Vuetify, i18n)
-
-├── router/         # Rotas da aplicação## 📝 License
-
-├── stores/         # Stores Pinia
-
-├── styles/         # Estilos globaisMIT
-
-└── views/          # Páginas da aplicação
-    ├── HomeView.vue    # Página inicial
-    └── DemoView.vue    # Demonstração de componentes
-```
-
-## 🎯 Como Usar Como Base
-
-1. Clone ou baixe este projeto
-2. Renomeie a pasta e atualize o `package.json` (nome, versão, etc)
-3. Remova exemplos que não precisar da `DemoView.vue`
-4. Execute `pnpm install`
-5. Comece a desenvolver!
-
-## 📝 Licença
+## 📝 License
 
 MIT
-````
+
+---
+
+Built with ❤️ using Vue 3, TypeScript, and Vuetify

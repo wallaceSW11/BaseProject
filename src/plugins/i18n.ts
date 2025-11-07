@@ -1,6 +1,6 @@
 import { createI18n } from "vue-i18n";
 import { messages, defaultLocale } from "@/locales";
-import { defaultMessages } from "@wallacesw11/base-lib/locales";
+import { defaultMessages } from "@wallacesw11/base-lib";
 
 export const i18n = createI18n({
   legacy: false,

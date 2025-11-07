@@ -140,11 +140,13 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { useAppStore } from '@/store'
-import { useThemeStore } from '@wallacesw11/base-lib/stores'
-import { useGlobals } from '@wallacesw11/base-lib'
-import { IconToolTip } from '@wallacesw11/base-lib'
-
-const { notify, loading, confirm } = useGlobals()
+import { 
+  useThemeStore,
+  notify,
+  loading,
+  confirm,
+  IconToolTip
+} from '@wallacesw11/base-lib'
 
 const appStore = useAppStore()
 const themeStore = useThemeStore()
@@ -176,7 +178,7 @@ const showLoading = () => {
 }
 
 const showConfirm = async () => {
-  const confirmed = await confirm('Are you sure you want to proceed?', 'Choose your option')
+  const confirmed = await confirm('Confirm Action', 'Are you sure you want to proceed?')
 
   if (confirmed) {
     notify('success', 'Confirmed', 'You chose Yes')

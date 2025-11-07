@@ -31,18 +31,16 @@
 <script setup lang="ts">
 import { ref, onMounted, computed } from 'vue'
 import {
-  useNotifyStore,
-  useLoadingStore,
-  useConfirmStore
-} from '@wallacesw11/base-lib/utils'
-import { useThemeSync } from '@wallacesw11/base-lib/composables'
-import { useThemeStore } from '@wallacesw11/base-lib/stores'
-import {
   FloatingNotify,
   LoadingOverlay,
   ConfirmDialog,
   LanguageSelector,
-  ThemeToggle
+  ThemeToggle,
+  useThemeSync,
+  useThemeStore,
+  useNotifyStore,
+  useLoadingStore,
+  useConfirmStore
 } from '@wallacesw11/base-lib'
 import { useLocaleStore } from '@/stores/locale'
 import { availableLocales } from '@/locales'
@@ -53,19 +51,28 @@ const confirmDialogRef = ref()
 
 const themeStore = useThemeStore()
 const localeStore = useLocaleStore()
+const notifyStore = useNotifyStore()
+const loadingStore = useLoadingStore()
+const confirmStore = useConfirmStore()
+
 const appName = computed(() => themeStore.appName)
 
 useThemeSync()
 localeStore.initializeLocale()
 
 function registerGlobalComponentRefs() {
-  const notifyStore = useNotifyStore()
-  const loadingStore = useLoadingStore()
-  const confirmStore = useConfirmStore()
-
-  notifyStore.setNotifyRef(floatingNotifyRef.value)
-  loadingStore.setLoadingRef(loadingOverlayRef.value)
-  confirmStore.setConfirmRef(confirmDialogRef.value)
+  // Registrar as refs dos componentes globais nas stores
+  if (floatingNotifyRef.value) {
+    notifyStore.setNotifyRef(floatingNotifyRef.value)
+  }
+  
+  if (loadingOverlayRef.value) {
+    loadingStore.setLoadingRef(loadingOverlayRef.value)
+  }
+  
+  if (confirmDialogRef.value) {
+    confirmStore.setConfirmRef(confirmDialogRef.value)
+  }
 }
 
 onMounted(registerGlobalComponentRefs)
