@@ -12,16 +12,16 @@
         <v-card class="mb-6">
           <v-card-title>{{ $t('demo.buttons.title') }}</v-card-title>
           <v-card-text>
-            <div class="d-flex flex-wrap">
-              <PrimaryButton class="mr-4 mb-2" :text="$t('demo.buttons.primary')" icon="mdi-check"
+            <div class="d-flex flex-wrap ga-4">
+              <PrimaryButton :text="$t('demo.buttons.primary')" prepend-icon="mdi-check"
                 @click="handleButtonClick('Primary')" />
-              <SecondaryButton class="mr-4 mb-2" :text="$t('demo.buttons.secondary')" icon="mdi-information"
+              <SecondaryButton :text="$t('demo.buttons.secondary')" prepend-icon="mdi-information"
                 @click="handleButtonClick('Secondary')" />
-              <TertiaryButton class="mr-4 mb-2" :text="$t('demo.buttons.tertiary')" icon="mdi-star"
+              <TertiaryButton :text="$t('demo.buttons.tertiary')" prepend-icon="mdi-star"
                 @click="handleButtonClick('Tertiary')" />
-              <QuartenaryButton class="mr-4 mb-2" :text="$t('demo.buttons.quartenary')" icon="mdi-alert"
+              <QuartenaryButton :text="$t('demo.buttons.quartenary')" prepend-icon="mdi-alert"
                 @click="handleButtonClick('Quartenary')" />
-              <PrimaryButton class="mb-2" :text="$t('demo.buttons.disabled')" :disabled="true" />
+              <PrimaryButton :text="$t('demo.buttons.disabled')" :disabled="true" />
             </div>
           </v-card-text>
         </v-card>
@@ -150,7 +150,11 @@ import {
   notify,
   loading,
   confirm,
-  IconToolTip
+  IconToolTip,
+  PrimaryButton,
+  SecondaryButton,
+  TertiaryButton,
+  QuartenaryButton
 } from '@wallacesw11/base-lib'
 
 const { t } = useI18n()
@@ -160,7 +164,7 @@ const themeStore = useThemeStore()
 const currentTheme = computed(() => themeStore.currentMode)
 
 const handleButtonClick = (buttonType: string) => {
-  notify('info', t('demo.buttons.clicked', { type: buttonType }), '')
+  notify.info(t('demo.buttons.clicked', { type: buttonType }), '')
 }
 
 const showNotification = (type: 'success' | 'error' | 'warning' | 'info') => {
@@ -172,24 +176,24 @@ const showNotification = (type: 'success' | 'error' | 'warning' | 'info') => {
   }
 
   const { title, message } = messages[type]
-  notify(type, title, message)
+  notify[type](title, message)
 }
 
 const showLoading = () => {
-  loading(true, t('demo.loading.message'))
+  loading.show(t('demo.loading.message'))
   setTimeout(() => {
-    loading(false)
-    notify('success', t('demo.loading.doneTitle'), t('demo.loading.doneMessage'))
+    loading.hide()
+    notify.success(t('demo.loading.doneTitle'), t('demo.loading.doneMessage'))
   }, 3000)
 }
 
 const showConfirm = async () => {
-  const confirmed = await confirm(t('demo.confirm.dialogTitle'), t('demo.confirm.dialogMessage'))
+  const confirmed = await confirm.show(t('demo.confirm.dialogTitle'), t('demo.confirm.dialogMessage'))
 
   if (confirmed) {
-    notify('success', t('demo.confirm.confirmedTitle'), t('demo.confirm.confirmedMessage'))
+    notify.success(t('demo.confirm.confirmedTitle'), t('demo.confirm.confirmedMessage'))
   } else {
-    notify('error', t('demo.confirm.cancelledTitle'), t('demo.confirm.cancelledMessage'))
+    notify.error(t('demo.confirm.cancelledTitle'), t('demo.confirm.cancelledMessage'))
   }
 };
 </script>

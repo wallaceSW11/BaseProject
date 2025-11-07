@@ -101,7 +101,11 @@ import {
 </script>
 
 <template>
-  <PrimaryButton text="Click me" icon="mdi-check" @click="handleClick" />
+  <PrimaryButton
+    text="Click me"
+    prepend-icon="mdi-check"
+    @click="handleClick"
+  />
   <LanguageSelector :available-locales="locales" />
   <ThemeToggle />
 </template>

@@ -12,8 +12,8 @@ importers:
         specifier: ^7.4.47
         version: 7.4.47
       '@wallacesw11/base-lib':
-        specifier: github:wallaceSW11/BaseLib#main
-        version: https://codeload.github.com/wallaceSW11/BaseLib/tar.gz/9eaac498b1b2170cc3e022c743fb3dcc396710c2(axios@1.13.1)(pinia@3.0.3(typescript@5.9.3)(vue@3.5.22(typescript@5.9.3)))(vue-i18n@11.1.12(vue@3.5.22(typescript@5.9.3)))(vue@3.5.22(typescript@5.9.3))(vuetify@3.10.8)
+        specifier: github:wallacesw11/BaseLib#main
+        version: https://codeload.github.com/wallacesw11/BaseLib/tar.gz/de2885f824fcbcea453c37da3165881147e79850(axios@1.13.1)(pinia@3.0.3(typescript@5.9.3)(vue@3.5.22(typescript@5.9.3)))(vue-i18n@11.1.12(vue@3.5.22(typescript@5.9.3)))(vue@3.5.22(typescript@5.9.3))(vuetify@3.10.8(typescript@5.9.3)(vite-plugin-vuetify@2.1.2)(vue@3.5.22(typescript@5.9.3)))
       axios:
         specifier: ^1.13.1
         version: 1.13.1
@@ -1207,8 +1207,8 @@ packages:
       vue: ^3.0.0
       vuetify: ^3.0.0
 
-  '@wallacesw11/base-lib@https://codeload.github.com/wallaceSW11/BaseLib/tar.gz/9eaac498b1b2170cc3e022c743fb3dcc396710c2':
-    resolution: {tarball: https://codeload.github.com/wallaceSW11/BaseLib/tar.gz/9eaac498b1b2170cc3e022c743fb3dcc396710c2}
+  '@wallacesw11/base-lib@https://codeload.github.com/wallacesw11/BaseLib/tar.gz/de2885f824fcbcea453c37da3165881147e79850':
+    resolution: {tarball: https://codeload.github.com/wallacesw11/BaseLib/tar.gz/de2885f824fcbcea453c37da3165881147e79850}
     version: 1.0.0
     peerDependencies:
       axios: ^1.0.0
@@ -4541,13 +4541,13 @@ snapshots:
       js-beautify: 1.15.4
       vue-component-type-helpers: 2.2.12
 
-  '@vuetify/loader-shared@2.1.1(vue@3.5.22(typescript@5.9.3))(vuetify@3.10.8)':
+  '@vuetify/loader-shared@2.1.1(vue@3.5.22(typescript@5.9.3))(vuetify@3.10.8(typescript@5.9.3)(vite-plugin-vuetify@2.1.2)(vue@3.5.22(typescript@5.9.3)))':
     dependencies:
       upath: 2.0.1
       vue: 3.5.22(typescript@5.9.3)
       vuetify: 3.10.8(typescript@5.9.3)(vite-plugin-vuetify@2.1.2)(vue@3.5.22(typescript@5.9.3))
 
-  '@wallacesw11/base-lib@https://codeload.github.com/wallaceSW11/BaseLib/tar.gz/9eaac498b1b2170cc3e022c743fb3dcc396710c2(axios@1.13.1)(pinia@3.0.3(typescript@5.9.3)(vue@3.5.22(typescript@5.9.3)))(vue-i18n@11.1.12(vue@3.5.22(typescript@5.9.3)))(vue@3.5.22(typescript@5.9.3))(vuetify@3.10.8)':
+  '@wallacesw11/base-lib@https://codeload.github.com/wallacesw11/BaseLib/tar.gz/de2885f824fcbcea453c37da3165881147e79850(axios@1.13.1)(pinia@3.0.3(typescript@5.9.3)(vue@3.5.22(typescript@5.9.3)))(vue-i18n@11.1.12(vue@3.5.22(typescript@5.9.3)))(vue@3.5.22(typescript@5.9.3))(vuetify@3.10.8(typescript@5.9.3)(vite-plugin-vuetify@2.1.2)(vue@3.5.22(typescript@5.9.3)))':
     dependencies:
       axios: 1.13.1
       pinia: 3.0.3(typescript@5.9.3)(vue@3.5.22(typescript@5.9.3))
@@ -6499,7 +6499,7 @@ snapshots:
 
   vite-plugin-vuetify@2.1.2(vite@7.1.12(@types/node@24.9.2)(terser@5.44.0))(vue@3.5.22(typescript@5.9.3))(vuetify@3.10.8):
     dependencies:
-      '@vuetify/loader-shared': 2.1.1(vue@3.5.22(typescript@5.9.3))(vuetify@3.10.8)
+      '@vuetify/loader-shared': 2.1.1(vue@3.5.22(typescript@5.9.3))(vuetify@3.10.8(typescript@5.9.3)(vite-plugin-vuetify@2.1.2)(vue@3.5.22(typescript@5.9.3)))
       debug: 4.4.3(supports-color@8.1.1)
       upath: 2.0.1
       vite: 7.1.12(@types/node@24.9.2)(terser@5.44.0)
