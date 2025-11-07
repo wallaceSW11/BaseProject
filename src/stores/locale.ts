@@ -3,7 +3,8 @@ import { ref, watch } from "vue";
 import { i18n } from "@/plugins/i18n";
 import { defaultLocale, type LocaleCode } from "@/locales";
 
-const LOCALE_STORAGE_KEY = "app-locale";
+// Usar a mesma chave que a BaseLib usa
+const LOCALE_STORAGE_KEY = "locale";
 
 function detectBrowserLocale(): LocaleCode {
   const browserLang = navigator.language;

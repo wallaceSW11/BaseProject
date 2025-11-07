@@ -1,6 +1,9 @@
+// Template para adicionar novos idiomas
+// Copie este arquivo e renomeie para o código do locale (ex: es-ES.ts, fr-FR.ts)
+
 export default {
   common: {
-    appName: "Base Project",
+    appName: "Base Project", // Nome da aplicação
     loading: "Loading...",
     save: "Save",
     cancel: "Cancel",
@@ -36,7 +39,7 @@ export default {
       tertiary: "Tertiary",
       quartenary: "Quartenary",
       disabled: "Disabled",
-      clicked: "You clicked the {type} button!",
+      clicked: "You clicked the {type} button!", // {type} será substituído dinamicamente
     },
     notifications: {
       title: "Notifications",
@@ -102,6 +105,7 @@ export default {
     select: "Select language",
     "pt-BR": "Português (Brasil)",
     "en-US": "English (US)",
+    // Adicione o nome do novo idioma aqui
   },
   messages: {
     success: "Operation completed successfully",

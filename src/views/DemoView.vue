@@ -2,25 +2,26 @@
   <v-container>
     <v-row>
       <v-col cols="12">
-        <h1 class="text-h3 mb-6">BaseLib - Component Demo</h1>
-        <p class="text-subtitle-1 mb-8">Exemplos práticos de todos os componentes e utilitários da BaseLib</p>
+        <h1 class="text-h3 mb-6">{{ $t('demo.title') }}</h1>
+        <p class="text-subtitle-1 mb-8">{{ $t('demo.subtitle') }}</p>
       </v-col>
     </v-row>
 
     <v-row>
       <v-col cols="12">
         <v-card class="mb-6">
-          <v-card-title>Buttons</v-card-title>
+          <v-card-title>{{ $t('demo.buttons.title') }}</v-card-title>
           <v-card-text>
             <div class="d-flex flex-wrap">
-              <PrimaryButton class="mr-4 mb-2" text="Primary" icon="mdi-check" @click="handleButtonClick('Primary')" />
-              <SecondaryButton class="mr-4 mb-2" text="Secondary" icon="mdi-information"
+              <PrimaryButton class="mr-4 mb-2" :text="$t('demo.buttons.primary')" icon="mdi-check"
+                @click="handleButtonClick('Primary')" />
+              <SecondaryButton class="mr-4 mb-2" :text="$t('demo.buttons.secondary')" icon="mdi-information"
                 @click="handleButtonClick('Secondary')" />
-              <TertiaryButton class="mr-4 mb-2" text="Tertiary" icon="mdi-star"
+              <TertiaryButton class="mr-4 mb-2" :text="$t('demo.buttons.tertiary')" icon="mdi-star"
                 @click="handleButtonClick('Tertiary')" />
-              <QuartenaryButton class="mr-4 mb-2" text="Quartenary" icon="mdi-alert"
+              <QuartenaryButton class="mr-4 mb-2" :text="$t('demo.buttons.quartenary')" icon="mdi-alert"
                 @click="handleButtonClick('Quartenary')" />
-              <PrimaryButton class="mb-2" text="Disabled" :disabled="true" />
+              <PrimaryButton class="mb-2" :text="$t('demo.buttons.disabled')" :disabled="true" />
             </div>
           </v-card-text>
         </v-card>
@@ -30,20 +31,20 @@
     <v-row>
       <v-col cols="12">
         <v-card class="mb-6">
-          <v-card-title>Notifications</v-card-title>
+          <v-card-title>{{ $t('demo.notifications.title') }}</v-card-title>
           <v-card-text>
             <div class="d-flex flex-wrap">
               <v-btn class="mr-4 mb-2" color="success" @click="showNotification('success')">
-                Success Notification
+                {{ $t('demo.notifications.success') }}
               </v-btn>
               <v-btn class="mr-4 mb-2" color="error" @click="showNotification('error')">
-                Error Notification
+                {{ $t('demo.notifications.error') }}
               </v-btn>
               <v-btn class="mr-4 mb-2" color="warning" @click="showNotification('warning')">
-                Warning Notification
+                {{ $t('demo.notifications.warning') }}
               </v-btn>
               <v-btn class="mb-2" color="info" @click="showNotification('info')">
-                Info Notification
+                {{ $t('demo.notifications.info') }}
               </v-btn>
             </div>
           </v-card-text>
@@ -54,15 +55,17 @@
     <v-row>
       <v-col cols="12">
         <v-card class="mb-6">
-          <v-card-title>Theme Configuration</v-card-title>
+          <v-card-title>{{ $t('demo.theme.title') }}</v-card-title>
           <v-card-text>
             <div class="mb-4">
-              <p class="text-subtitle-2 mb-2">Current Theme: <strong>{{ currentTheme }}</strong></p>
-              <p class="text-subtitle-2 mb-4">App Name: <strong>{{ themeStore.appName }}</strong></p>
+              <p class="text-subtitle-2 mb-2">{{ $t('demo.theme.currentTheme') }}: <strong>{{ currentTheme }}</strong>
+              </p>
+              <p class="text-subtitle-2 mb-4">{{ $t('demo.theme.appName') }}: <strong>{{ themeStore.appName }}</strong>
+              </p>
             </div>
 
             <div class="mb-4">
-              <h4 class="mb-2">Theme Colors:</h4>
+              <h4 class="mb-2">{{ $t('demo.theme.themeColors') }}:</h4>
               <div class="d-flex flex-wrap">
                 <v-chip v-for="(value, name) in themeStore.currentColors" :key="name" :color="String(name)"
                   class="mr-2 mb-2" label>
@@ -72,7 +75,7 @@
             </div>
 
             <v-btn color="primary" @click="themeStore.toggleTheme()">
-              Toggle Theme
+              {{ $t('demo.theme.toggleTheme') }}
             </v-btn>
           </v-card-text>
         </v-card>
@@ -82,10 +85,10 @@
     <v-row>
       <v-col cols="12">
         <v-card class="mb-6">
-          <v-card-title>Loading Overlay</v-card-title>
+          <v-card-title>{{ $t('demo.loading.title') }}</v-card-title>
           <v-card-text>
             <v-btn color="primary" @click="showLoading">
-              Show Loading (3 seconds)
+              {{ $t('demo.loading.showButton') }}
             </v-btn>
           </v-card-text>
         </v-card>
@@ -95,10 +98,10 @@
     <v-row>
       <v-col cols="12">
         <v-card class="mb-6">
-          <v-card-title>Confirm Dialog</v-card-title>
+          <v-card-title>{{ $t('demo.confirm.title') }}</v-card-title>
           <v-card-text>
             <v-btn color="primary" @click="showConfirm">
-              Show Confirmation
+              {{ $t('demo.confirm.showButton') }}
             </v-btn>
           </v-card-text>
         </v-card>
@@ -108,13 +111,13 @@
     <v-row>
       <v-col cols="12">
         <v-card class="mb-6">
-          <v-card-title>Icon Tooltip</v-card-title>
+          <v-card-title>{{ $t('demo.iconTooltip.title') }}</v-card-title>
           <v-card-text>
             <div class="d-flex align-center">
-              <IconToolTip class="mr-4" icon="mdi-help-circle" text="Help tooltip" />
-              <IconToolTip class="mr-4" icon="mdi-information" text="Information tooltip" />
-              <IconToolTip class="mr-4" icon="mdi-delete" text="Delete action" as-button />
-              <IconToolTip icon="mdi-pencil" text="Edit action" :as-button="true" />
+              <IconToolTip class="mr-4" icon="mdi-help-circle" :text="$t('demo.iconTooltip.help')" />
+              <IconToolTip class="mr-4" icon="mdi-information" :text="$t('demo.iconTooltip.info')" />
+              <IconToolTip class="mr-4" icon="mdi-delete" :text="$t('demo.iconTooltip.delete')" as-button />
+              <IconToolTip icon="mdi-pencil" :text="$t('demo.iconTooltip.edit')" :as-button="true" />
             </div>
           </v-card-text>
         </v-card>
@@ -124,11 +127,12 @@
     <v-row>
       <v-col cols="12">
         <v-card>
-          <v-card-title>Pinia Store</v-card-title>
+          <v-card-title>{{ $t('demo.store.title') }}</v-card-title>
           <v-card-text>
-            <p class="mb-4">Counter: {{ appStore.counter }} (Double: {{ appStore.doubleCounter }})</p>
+            <p class="mb-4">{{ $t('demo.store.counter') }}: {{ appStore.counter }} ({{ $t('demo.store.double') }}: {{
+              appStore.doubleCounter }})</p>
             <v-btn color="primary" @click="appStore.increment()">
-              Increment Counter
+              {{ $t('demo.store.increment') }}
             </v-btn>
           </v-card-text>
         </v-card>
@@ -139,8 +143,9 @@
 
 <script setup lang="ts">
 import { computed } from 'vue'
+import { useI18n } from 'vue-i18n'
 import { useAppStore } from '@/store'
-import { 
+import {
   useThemeStore,
   notify,
   loading,
@@ -148,21 +153,22 @@ import {
   IconToolTip
 } from '@wallacesw11/base-lib'
 
+const { t } = useI18n()
 const appStore = useAppStore()
 const themeStore = useThemeStore()
 
 const currentTheme = computed(() => themeStore.currentMode)
 
 const handleButtonClick = (buttonType: string) => {
-  notify('info', 'Button Clicked', `You clicked the ${buttonType} button!`)
+  notify('info', t('demo.buttons.clicked', { type: buttonType }), '')
 }
 
 const showNotification = (type: 'success' | 'error' | 'warning' | 'info') => {
   const messages = {
-    success: { title: 'Success!', message: 'Operation completed successfully' },
-    error: { title: 'Error!', message: 'Something went wrong' },
-    warning: { title: 'Warning!', message: 'Please check this carefully' },
-    info: { title: 'Information', message: 'Here is some useful information' },
+    success: { title: t('demo.notifications.successTitle'), message: t('demo.notifications.successMessage') },
+    error: { title: t('demo.notifications.errorTitle'), message: t('demo.notifications.errorMessage') },
+    warning: { title: t('demo.notifications.warningTitle'), message: t('demo.notifications.warningMessage') },
+    info: { title: t('demo.notifications.infoTitle'), message: t('demo.notifications.infoMessage') },
   }
 
   const { title, message } = messages[type]
@@ -170,20 +176,20 @@ const showNotification = (type: 'success' | 'error' | 'warning' | 'info') => {
 }
 
 const showLoading = () => {
-  loading(true, 'Processing your request...')
+  loading(true, t('demo.loading.message'))
   setTimeout(() => {
     loading(false)
-    notify('success', 'Done!', 'Loading completed')
+    notify('success', t('demo.loading.doneTitle'), t('demo.loading.doneMessage'))
   }, 3000)
 }
 
 const showConfirm = async () => {
-  const confirmed = await confirm('Confirm Action', 'Are you sure you want to proceed?')
+  const confirmed = await confirm(t('demo.confirm.dialogTitle'), t('demo.confirm.dialogMessage'))
 
   if (confirmed) {
-    notify('success', 'Confirmed', 'You chose Yes')
+    notify('success', t('demo.confirm.confirmedTitle'), t('demo.confirm.confirmedMessage'))
   } else {
-    notify('error', 'Cancelled', 'You chose No')
+    notify('error', t('demo.confirm.cancelledTitle'), t('demo.confirm.cancelledMessage'))
   }
 };
 </script>

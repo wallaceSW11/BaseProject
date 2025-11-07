@@ -65,11 +65,11 @@ function registerGlobalComponentRefs() {
   if (floatingNotifyRef.value) {
     notifyStore.setNotifyRef(floatingNotifyRef.value)
   }
-  
+
   if (loadingOverlayRef.value) {
     loadingStore.setLoadingRef(loadingOverlayRef.value)
   }
-  
+
   if (confirmDialogRef.value) {
     confirmStore.setConfirmRef(confirmDialogRef.value)
   }

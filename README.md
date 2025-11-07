@@ -202,7 +202,88 @@ src/
 └── main.ts         # Application entry point
 ```
 
-## 🎯 Using as a Base Project
+## � Internationalization (i18n)
+
+This project is fully configured with Vue I18n for multi-language support. The language selector in the header allows users to switch between languages seamlessly.
+
+### Supported Languages
+
+- 🇧🇷 Portuguese (Brazil) - `pt-BR`
+- 🇺🇸 English (US) - `en-US`
+
+### Using Translations in Components
+
+```vue
+<script setup lang="ts">
+import { useI18n } from "vue-i18n";
+
+const { t } = useI18n();
+</script>
+
+<template>
+  <!-- Using translation in template -->
+  <h1>{{ $t("home.title") }}</h1>
+
+  <!-- Using translation with parameters -->
+  <p>{{ $t("demo.buttons.clicked", { type: "Primary" }) }}</p>
+
+  <!-- Using translation in script -->
+  <button @click="notify('success', t('messages.success'), '')">
+    {{ $t("common.save") }}
+  </button>
+</template>
+```
+
+### Using the i18n Helper Composable
+
+```typescript
+import { useI18nHelpers } from "@/composables";
+
+const { t, changeLocale, currentLocale } = useI18nHelpers();
+
+// Translate with parameters
+const message = t("demo.buttons.clicked", { type: "Primary" });
+
+// Change language programmatically
+changeLocale("en-US");
+
+// Get current language
+console.log(currentLocale()); // 'pt-BR' or 'en-US'
+```
+
+### Adding New Languages
+
+1. Create a new file in `src/locales/` (e.g., `es-ES.ts`)
+2. Add translations following the existing structure
+3. Import and add to `src/locales/index.ts`:
+
+```typescript
+import esES from "@/locales/es-ES";
+
+export const messages = {
+  "pt-BR": ptBR,
+  "en-US": enUS,
+  "es-ES": esES, // New language
+};
+
+export const availableLocales = [
+  { code: "pt-BR", name: "Português (Brasil)", countryCode: "BR" },
+  { code: "en-US", name: "English (US)", countryCode: "US" },
+  { code: "es-ES", name: "Español", countryCode: "ES" }, // New language
+];
+```
+
+4. Update the type in `src/locales/index.ts`:
+
+```typescript
+export type LocaleCode = "pt-BR" | "en-US" | "es-ES";
+```
+
+### Language Persistence
+
+The selected language is automatically saved to `localStorage` and restored on page reload. The app also detects the browser's language on first visit.
+
+## �🎯 Using as a Base Project
 
 1. Clone or download this project
 2. Rename the folder and update `package.json` (name, version, etc.)
